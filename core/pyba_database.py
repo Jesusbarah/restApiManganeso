@@ -41,27 +41,6 @@ class PybaDatabase:
             result = cursor.fetchall()
         return result
 
-    # usar este metodo con INSERT, UPDATE, DELETE u otros
-    # retorna un bool true is funciono
-    def executeNonQueryBool(self, sql):
-        cursor = self.cursor
-        con = self.connection
-        success = False
-        if cursor is not None:
-            cursor.execute(sql)
-            con.commit()
-            rows = cursor.rowcount
-            if rows > 0:
-                success = True
-        return success
 
-    # usar este metodo con INSERT, UPDATE, DELETE u otros
-    # retorna el numero de filas afectadas
-    def executeNonQueryRows(self, sql):
-        cursor = self.cursor
-        con = self.connection
-        if cursor is not None:
-            cursor.execute(sql)
-            con.commit()
-            rows = cursor.rowcount
-        return rows
+
+

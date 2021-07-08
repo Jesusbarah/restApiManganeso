@@ -24,33 +24,4 @@ class CityLogic(PybaLogic):
             return result
         else:
             return []
-
-    # put
-    def insertCity(self, city):
-        database = self.createDatabaseObj()
-        sql = (
-            f"INSERT INTO `world`.`city`"
-            + f"(`ID`,`Name`,`CountryCode`,`District`,`Population`) "
-            + f"VALUES(0,'{city['Name']}','{city['CountryCode']}','{city['District']}',{city['Population']});"
-        )
-        rows = database.executeNonQueryRows(sql)
-        return rows
-
-    # patch
-    def updateCity(self, id, city):
-        database = self.createDatabaseObj()
-        sql = (
-            f"UPDATE `world`.`city` "
-            + f"SET `Name` = '{city['Name']}',`CountryCode` = '{city['CountryCode']}',"
-            + f"`District` = '{city['District']}',`Population` = {city['Population']} "
-            + f"WHERE `ID` = {id};"
-        )
-        rows = database.executeNonQueryRows(sql)
-        return rows
-
-    # delete
-    def deleteCity(self, id):
-        database = self.createDatabaseObj()
-        sql = f"DELETE FROM `world`.`city` WHERE ID={id};"
-        rows = database.executeNonQueryRows(sql)
-        return rows
+            
